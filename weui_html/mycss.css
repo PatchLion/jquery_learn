@@ -1,0 +1,61 @@
+body{
+	background-color:white;
+	margin:30px;
+	padding:0;
+}
+div.line-item{
+	position:relative;
+	top: 10px;
+}
+img.jump-item{
+	background-color: transparent;
+	float: right;
+	padding-top: 17px;
+	padding-right: 12px;
+	width: 16px;
+	height: 24px;
+	cursor: pointer; 
+	opacity: 0.5;
+}
+#scroll_area{
+	height: 50%;
+}
+#add_card_id_btn{
+	position: absolute; 
+	left: 10%; 
+	color: white;
+	font-family:Lucida Grande, Lucida Sans Unicode, Lucida Sans, DejaVu Sans, Verdana," sans-serif";
+	text-align: center;
+	width: 80%;
+	border-radius: 8px;
+	font-size: 18px;
+	background-color: #00D100;
+	vertical-align: middle; 
+	height:30px;   
+	padding-top: 6px;
+}
+.card-info-btn{
+	height: 60px;
+	border-style: solid;
+	border-color: darkgray;
+	border-radius: 5px;
+	border-width: 1px;
+	background-color:white;
+	
+}
+text{
+	color: #2E2E2E;
+	font-size: 14px;
+	font-family:Lucida Grande, Lucida Sans Unicode, Lucida Sans, DejaVu Sans, Verdana," sans-serif";
+}
+text.card-id-title{
+	padding-left: 10px;
+}
+text.card-id-number{
+}
+
+text.card-balance-title{
+	padding-left: 10px;
+}
+text.card-balance-number{
+}

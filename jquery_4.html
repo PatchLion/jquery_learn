@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery</title>
+<script src="jquery.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#btn1").click(function(){
+			alert("Text: " + $("#btn1").text());
+		});
+	});
+	
+	$(document).ready(function(){
+		$("#btn2").click(function(){
+			alert("HTML: " + $("#btn2").html());
+		});
+	});
+	
+	$(document).ready(function(){
+		$("#btn3").click(function(){
+			alert("Val: " + $("#test3").val());
+		});
+	});
+	
+	$(document).ready(function(){
+		$("#btn4").click(function(){
+			alert("Attr: " + $("#test3").attr("testattr"));
+			$("#btn4").after("<p>Hello</p>")
+		});
+	});
+	</script>
+</head>
+
+<body>
+<p id="test1">动画1</p>
+<p id="test2">动画2</p>
+<input id="test3" value="米老鼠" testattr="AAACCCDDD"></input>
+<button id="btn1">获取Test</button>
+<button id="btn2">获取HTML</button>
+<button id="btn3">获取Val</button>
+<button id="btn4">获取Attr</button>
+</body>
+</html>

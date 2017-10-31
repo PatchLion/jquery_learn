@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery</title>
+<script src="jquery.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#btn1").click(function(){
+			$("#test1").hide(250, function(){
+				alert("AAAA")
+			});
+		});
+	});
+	
+	$(document).ready(function(){
+		$("#btn2").click(function(){
+			$("#test2")
+				.css("color", "red")
+				.slideUp(2000)
+				.slideDown(2000)
+		});
+	});
+	</script>
+</head>
+
+<body>
+<p id="test1">动画1</p>
+<p id="test2">动画2</p>
+<button id="btn1">开始动画</button>
+<button id="btn2">开始动画2</button>
+</body>
+</html>
