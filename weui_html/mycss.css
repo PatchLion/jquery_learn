@@ -33,6 +33,11 @@ img.jump-item{
 	vertical-align: middle; 
 	height:30px;   
 	padding-top: 6px;
+	cursor: pointer;
+}
+#add_card_id_btn:hover{
+	
+	background-color: #00B100;
 }
 .card-info-btn{
 	height: 60px;
