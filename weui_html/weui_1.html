@@ -4,9 +4,15 @@
     <title>WeUI</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <style src="../jquery.js"></style>
+    <script src="jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="mycss.css">
     <script>
+		$(document).ready(function(){
+				$("#add_card_id_btn").click(function(){
+				alert("AAAAA");
+			});		
+		});
+
 	</script>
 </head>
 
@@ -27,8 +33,10 @@
 </p>
 
 </div>
-<div id="add_card_id_btn">
+<a id="add_card_id_btn">
 添加卡片
-</div>
+</a>
+
+<div class="AAA BBB">assd</div>
 </body>
 </html>

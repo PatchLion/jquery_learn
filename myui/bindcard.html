@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>油卡绑定</title>
+    <link rel="stylesheet" href="./weui.css">
+    <link rel="stylesheet" href="./example.css">
+	<link rel="stylesheet" type="text/css" id="SL_Style" href="chrome://imtranslator/content/css/translator.css">
+    <link rel="stylesheet" href="./mycss.css">
+	<script src="jquery.js"></script>
+	<script>
+		function onCommit()
+		{
+			jQuery.noConflict()
+			var inputs = jQuery(".weui-input")
+			var cardid = inputs[0].value
+			//alert("提交" + inputs[0].value + " " + inputs[1].value)
+			if(!checkCardID(cardid))
+			{
+				alert("卡号格式错误")
+				return;
+			}
+			
+			var personid = inputs[1].value
+			
+			if(!checkPersonID(personid))
+			{
+				alert("身份证号码格式错误")
+				return;
+			}
+		
+			//提交绑定
+			//alert("提交绑定")
+			
+			jQuery("#loadingToast").css("opacity", 1)
+			jQuery("#loadingToast").css("display", "inline")
+			
+			//test
+			window.location = "mycards.html"
+		}
+		
+		
+		
+		function checkCardID(cardid)
+		{
+			if(cardid === "undefined" || cardid.length === 0)
+			{
+				return false;
+			}
+			var reg = /[0-9]{11}/
+			return reg.test(cardid)
+		}
+		function checkPersonID(personID)
+		{		
+			if(personID === "undefined" || personID.length === 0)
+			{
+				return false;
+			}
+			var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
+			return reg.test(personID)
+		}
+	</script>
+</head>
+
+<body>
+    <div id="loadingToast" style="opacity: 0; display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-loading weui-icon_toast"></i>
+            <p class="weui-toast__content">绑定中</p>
+        </div>
+    </div>
+    
+	<form>    
+	<div class="page__bd">
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label for="" class="weui-label">卡号</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" pattern="[0-9]{11}" value="12345678901" placeholder="请输入11位卡号" type="text">
+                </div>
+                <div class="weui-cell__ft">
+                    <i class="weui-icon-warn"></i>
+                </div>
+            </div>
+          <div class="weui-cell">
+                <div class="weui-cell__hd"><label for="" class="weui-label">身份证号</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" pattern="(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)" value="123456789011234" placeholder="请输入15或18位身份证号" type="text">
+                </div>
+                <div class="weui-cell__ft">
+                    <i class="weui-icon-warn"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-btn-area">
+            <a class="weui-btn weui-btn_primary" href="javascript:onCommit();" id="showTooltips">确定</a>
+        </div>
+    </div>    
+
+</form>    
+</body>
+</html>

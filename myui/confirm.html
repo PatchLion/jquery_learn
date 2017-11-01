@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>支付确认</title>
+    <link rel="stylesheet" href="./weui.css">
+    <link rel="stylesheet" href="./example.css">
+	<link rel="stylesheet" type="text/css" id="SL_Style" href="chrome://imtranslator/content/css/translator.css">
+    <link rel="stylesheet" href="./mycss.css">
+	<script src="jquery.js"></script>
+	<script>
+		
+				
+		
+		function onCommit()
+		{
+			jQuery.noConflict();
+			jQuery("#loadingToast").css("opacity", 1);
+			jQuery("#loadingToast").css("display", "inline");
+		}
+		
+		//获取money
+		function getUrlParam(name) {
+		  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+		  var r = window.location.search.substr(1).match(reg); //匹配目标参数
+		  if (r != null) return unescape(r[2]); return null; //返回参数值
+		 }
+		
+		jQuery.noConflict();
+		jQuery(document).ready(function(){
+			//alert(getUrlParam('money'));
+			var money = getUrlParam('money')
+			var cardid = getUrlParam('cardid')
+			jQuery(".weui-form-preview__value")[0].innerHTML = "¥"+money
+			jQuery(".weui-form-preview__value")[1].innerHTML = "油卡充值: ¥"+money
+			jQuery(".weui-form-preview__value")[3].innerHTML = "微信支付充值, 卡号:"+cardid
+			
+		});
+
+	</script>
+</head>
+
+<body>
+  
+    <div class="page__bd">
+        
+        <div class="weui-form-preview">
+            <div class="weui-form-preview__hd">
+                <label class="weui-form-preview__label">付款金额</label>
+                <em class="weui-form-preview__value">¥2400.00</em>
+            </div>
+            <div class="weui-form-preview__bd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">商品</label>
+                    <span class="weui-form-preview__value">油卡充值</span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">企业名称</label>
+                    <span class="weui-form-preview__value">巴州侨联能源</span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">备注</label>
+                    <span class="weui-form-preview__value">微信支付充值</span>
+                </div>
+            </div>
+            <div class="weui-form-preview__ft">
+                <a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:window.location='mycards.html'">取消</a>
+                <button type="submit" onClick="javascript:onCommit();" class="weui-form-preview__btn weui-form-preview__btn_primary">确认</button>
+            </div>
+        </div>
+        
+           
+       <div id="loadingToast" style="opacity: 0; display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-loading weui-icon_toast"></i>
+            <p class="weui-toast__content">支付中</p>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

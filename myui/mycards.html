@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>我的油卡</title>
+    <link rel="stylesheet" href="./weui.css">
+    <link rel="stylesheet" href="./mycss.css">
+    <script src="jquery.js"></script>
+    <script>
+		function onBindButtonClicked()
+		{
+			hideCardOpreatorPanel()
+			//alert("绑定油卡功能......")
+			window.location = "bindcard.html"
+		}
+		function pay(money)
+		{
+			//alert("充值:" + money)
+			hideCardOpreatorPanel()
+			window.location = "confirm.html?money=" + money + "&cardid=" + jQuery(".weui-actionsheet__title-text")[1].text
+		}
+		function jumpToPayOtherPage()
+		{
+			alert("跳转到其他金额页面")
+		}
+		function onCardClicked(cardid)
+		{
+			//alert("点击油卡: " + cardid)
+			showCardOpreatorPanel(cardid)
+		}
+		
+		function showCardOpreatorPanel(cardid)
+		{
+			$(".weui-actionsheet__title-text")[1].text = cardid
+			$("#iosActionsheet").css("display", "inline")
+			$("#iosActionsheet").css("opacity", 1)
+		}
+		function hideCardOpreatorPanel()
+		{
+			$("#iosActionsheet").css("display", "none")
+			$("#iosActionsheet").css("opacity", 0)
+		}
+	</script>
+    </head>
+
+<body>
+<div class="weui-panel__bd">
+                <a href="javascript:onCardClicked('1000000001');" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="card_icon.png" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title">卡号:1000000001</h4>
+                        <p class="weui-media-box__desc">余额:1000</p>
+                    </div>
+                </a>
+                <a href="javascript:onCardClicked('1000000002');" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="card_icon.png" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title">卡号:1000000002</h4>
+                        <p class="weui-media-box__desc">余额:2000</p>
+                    </div>
+                </a>
+            </div>
+            <a href="javascript:onBindButtonClicked();" class="weui-btn weui-btn_primary margin-top-px">绑定油卡</a>
+</body>
+
+<div class="weui-actionsheet weui-actionsheet_toggle" id="iosActionsheet" style="display: none">
+            <div class="weui-actionsheet__title">
+                <p class="weui-actionsheet__title-text">卡号</p>
+                <p class="weui-actionsheet__title-text">10000000001</p>
+            </div>
+            <div class="weui-actionsheet__menu">
+                <div class="weui-actionsheet__cell" onClick="javascript:pay(100);">充值: ¥100</div>
+                <div class="weui-actionsheet__cell" onClick="javascript:pay(200);">充值: ¥200</div>
+                <div class="weui-actionsheet__cell" onClick="javascript:pay(300);">充值: ¥300</div>
+                <div class="weui-actionsheet__cell" onClick="javascript:pay(400);">充值: ¥400</div>
+                <div class="weui-actionsheet__cell" onClick="javascript:jumpToPayOtherPage();">其他金额</div>
+            </div>
+            <div class="weui-actionsheet__action">
+                <div class="weui-actionsheet__cell" id="iosActionsheetCancel" onClick="javascript:hideCardOpreatorPanel();">取消</div>
+            </div>
+        </div>
+</html>

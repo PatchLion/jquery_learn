@@ -10,15 +10,25 @@ div.line-item{
 img.jump-item{
 	background-color: transparent;
 	float: right;
-	padding-top: 17px;
+	padding-top: 20px;
 	padding-right: 12px;
-	width: 16px;
-	height: 24px;
+	width: 10px;
+	height: 16px;
 	cursor: pointer; 
 	opacity: 0.5;
 }
 #scroll_area{
 	height: 50%;
+}
+
+.AAA{
+	color: red;
+}
+
+.BBB{
+	border-color: blue;
+	border-width: 2px;
+	border-style: dashed;
 }
 #add_card_id_btn{
 	position: absolute; 
@@ -34,6 +44,7 @@ img.jump-item{
 	height:30px;   
 	padding-top: 6px;
 	cursor: pointer;
+	text-decoration: none;
 }
 #add_card_id_btn:hover{
 	
