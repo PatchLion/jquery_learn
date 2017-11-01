@@ -18,7 +18,7 @@
 		{
 			//alert("充值:" + money)
 			hideCardOpreatorPanel()
-			window.location = "confirm.html?money=" + money + "&cardid=" + jQuery(".weui-actionsheet__title-text")[1].text
+			window.location = "confirm.html?money=" + money + "&cardid=" + $(".weui-actionsheet__title-text")[1].text
 		}
 		function jumpToPayOtherPage()
 		{
@@ -32,7 +32,7 @@
 		
 		function showCardOpreatorPanel(cardid)
 		{
-			$(".weui-actionsheet__title-text")[1].text = cardid
+			$(".weui-actionsheet__title-text")[1].innerHTML = cardid
 			$("#iosActionsheet").css("display", "inline")
 			$("#iosActionsheet").css("opacity", 1)
 		}
@@ -74,11 +74,11 @@
                 <p class="weui-actionsheet__title-text">10000000001</p>
             </div>
             <div class="weui-actionsheet__menu">
-                <div class="weui-actionsheet__cell" onClick="javascript:pay(100);">充值: ¥100</div>
-                <div class="weui-actionsheet__cell" onClick="javascript:pay(200);">充值: ¥200</div>
-                <div class="weui-actionsheet__cell" onClick="javascript:pay(300);">充值: ¥300</div>
-                <div class="weui-actionsheet__cell" onClick="javascript:pay(400);">充值: ¥400</div>
-                <div class="weui-actionsheet__cell" onClick="javascript:jumpToPayOtherPage();">其他金额</div>
+                <div class="weui-actionsheet__cell" onClick="javascript:pay(100);">充值: ¥100 (优惠券50)</div>
+                <div class="weui-actionsheet__cell" onClick="javascript:pay(200);">充值: ¥200 (优惠券100)</div>
+                <div class="weui-actionsheet__cell" onClick="javascript:pay(300);">充值: ¥300 (优惠券150)</div>
+                <div class="weui-actionsheet__cell" onClick="javascript:pay(400);">充值: ¥400 (优惠券200)</div>
+                <!--div class="weui-actionsheet__cell" onClick="javascript:jumpToPayOtherPage();">其他金额</div-->
             </div>
             <div class="weui-actionsheet__action">
                 <div class="weui-actionsheet__cell" id="iosActionsheetCancel" onClick="javascript:hideCardOpreatorPanel();">取消</div>
