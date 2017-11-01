@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <title>我的油卡</title>
-    <link rel="stylesheet" href="./weui.css">
-    <link rel="stylesheet" href="./mycss.css">
-    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="./css/weui.css">
+    <link rel="stylesheet" href="./css/mycss.css">
+    <script src="./javascript/jquery.js"></script>
     <script>
+		$(document).ready(function(){
+			hideCardOpreatorPanel()
+		});
 		function onBindButtonClicked()
 		{
 			hideCardOpreatorPanel()
@@ -33,22 +36,61 @@
 		function showCardOpreatorPanel(cardid)
 		{
 			$(".weui-actionsheet__title-text")[1].innerHTML = cardid
-			$("#iosActionsheet").css("display", "inline")
-			$("#iosActionsheet").css("opacity", 1)
+			$("#iosActionsheet").addClass('weui-actionsheet_toggle');
+			$("#iosMask").css("opacity", 1);
+			$("#iosMask").css("display", "inline");
+			$("#iosMask").fadeIn(200);
 		}
 		function hideCardOpreatorPanel()
 		{
-			$("#iosActionsheet").css("display", "none")
-			$("#iosActionsheet").css("opacity", 0)
+			$("#iosActionsheet").removeClass('weui-actionsheet_toggle');
+			$("#iosMask").css("opacity", 0);
+			$("#iosMask").css("display", "none");
+			$("#iosMask").fadeOut(200);
 		}
+		
+	</script>
+   
+   
+	<script type="text/javascript" class="actionsheet js_show">
+    // ios
+    $(function(){
+        var $iosActionsheet = $('#iosActionsheet');
+        var $iosMask = $('#iosMask');
+
+        function hideActionSheet() {
+            hideCardOpreatorPanel()
+        }
+
+        $iosMask.on('click', hideActionSheet);
+        $('#iosActionsheetCancel').on('click', hideActionSheet);
+        $("#showIOSActionSheet").on("click", function(){
+            $iosActionsheet.addClass('weui-actionsheet_toggle');
+            $iosMask.fadeIn(200);
+        });
+    });
+
+    // android
+    $(function(){
+        var $androidActionSheet = $('#androidActionsheet');
+        var $androidMask = $androidActionSheet.find('.weui-mask');
+
+        $("#showAndroidActionSheet").on('click', function(){
+            $androidActionSheet.fadeIn(200);
+            $androidMask.on('click',function () {
+                $androidActionSheet.fadeOut(200);
+            });
+        });
+    });
+	
 	</script>
     </head>
 
 <body>
 <div class="weui-panel__bd">
-                <a href="javascript:onCardClicked('1000000001');" class="weui-media-box weui-media-box_appmsg">
+                <a href="javascript:onCardClicked('1000000001');" class="weui-media-box weui-media-box_appmsg ">
                     <div class="weui-media-box__hd">
-                        <img class="weui-media-box__thumb" src="card_icon.png" alt="">
+                        <img class="weui-media-box__thumb" src="./images/card_icon.png" alt="">
                     </div>
                     <div class="weui-media-box__bd">
                         <h4 class="weui-media-box__title">卡号:1000000001</h4>
@@ -57,7 +99,7 @@
                 </a>
                 <a href="javascript:onCardClicked('1000000002');" class="weui-media-box weui-media-box_appmsg">
                     <div class="weui-media-box__hd">
-                        <img class="weui-media-box__thumb" src="card_icon.png" alt="">
+                        <img class="weui-media-box__thumb" src="./images/card_icon.png" alt="">
                     </div>
                     <div class="weui-media-box__bd">
                         <h4 class="weui-media-box__title">卡号:1000000002</h4>
@@ -68,20 +110,22 @@
             <a href="javascript:onBindButtonClicked();" class="weui-btn weui-btn_primary margin-top-px">绑定油卡</a>
 </body>
 
-<div class="weui-actionsheet weui-actionsheet_toggle" id="iosActionsheet" style="display: none">
+<div>
+        <div class="weui-mask" id="iosMask" style="display: none; opacity: 0"></div>
+        <div class="weui-actionsheet" id="iosActionsheet">
             <div class="weui-actionsheet__title">
                 <p class="weui-actionsheet__title-text">卡号</p>
-                <p class="weui-actionsheet__title-text">10000000001</p>
+                <p class="weui-actionsheet__title-text">1000000000</p>
             </div>
             <div class="weui-actionsheet__menu">
-                <div class="weui-actionsheet__cell" onClick="javascript:pay(100);">充值: ¥100 (优惠券50)</div>
-                <div class="weui-actionsheet__cell" onClick="javascript:pay(200);">充值: ¥200 (优惠券100)</div>
-                <div class="weui-actionsheet__cell" onClick="javascript:pay(300);">充值: ¥300 (优惠券150)</div>
-                <div class="weui-actionsheet__cell" onClick="javascript:pay(400);">充值: ¥400 (优惠券200)</div>
-                <!--div class="weui-actionsheet__cell" onClick="javascript:jumpToPayOtherPage();">其他金额</div-->
+                <div class="weui-actionsheet__cell" onClick="javascript:pay(100)">充值: ¥100 (50优惠卷)</div>
+                <div class="weui-actionsheet__cell" onClick="javascript:pay(200)">充值: ¥200 (100优惠卷)</div>
+                <div class="weui-actionsheet__cell" onClick="javascript:pay(300)">充值: ¥300 (150优惠卷)</div>
+                <div class="weui-actionsheet__cell" onClick="javascript:pay(400)">充值: ¥400 (200优惠卷)</div>
             </div>
             <div class="weui-actionsheet__action">
-                <div class="weui-actionsheet__cell" id="iosActionsheetCancel" onClick="javascript:hideCardOpreatorPanel();">取消</div>
+                <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
             </div>
         </div>
+    </div>
 </html>
