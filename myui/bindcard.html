@@ -6,6 +6,7 @@
     <title>油卡绑定</title>
     <link rel="stylesheet" href="./css/weui.css">
     <link rel="stylesheet" href="./css/example.css">
+    <link rel="stylesheet" href="./css/example.css">
 	<link rel="stylesheet" type="text/css" id="SL_Style" href="chrome://imtranslator/content/css/translator.css">
     <link rel="stylesheet" href="./css/mycss.css">
 	<script src="./javascript/jquery.js"></script>
@@ -18,7 +19,7 @@
 			//alert("提交" + inputs[0].value + " " + inputs[1].value)
 			if(!checkCardID(cardid))
 			{
-				alert("卡号格式错误")
+				showMessageDialog("卡号格式错误")
 				return;
 			}
 			
@@ -26,7 +27,7 @@
 			
 			if(!checkPersonID(personid))
 			{
-				alert("身份证号码格式错误")
+				showMessageDialog("身份证号码格式错误")
 				return;
 			}
 		
@@ -61,6 +62,24 @@
 			return reg.test(personID)
 		}
 	</script>
+	
+	<script type="text/javascript">
+     	function showMessageDialog(message)
+		{
+			//alert(message)
+			jQuery(".weui-dialog__bd").text(message);
+			jQuery("#iosDialog2").css("opacity", 1);
+			jQuery("#iosDialog2").css("display", "inline");
+			jQuery("#iosDialog2").fadeIn(200);
+		}
+		function hideMessageDialog()
+		{
+			jQuery("#iosDialog2").css("opacity", 0);
+			jQuery("#iosDialog2").css("display", "none");
+			jQuery("#iosDialog2").fadeOut(200);
+		}
+	</script>
+	
 </head>
 
 <body>
@@ -101,5 +120,15 @@
     </div>    
 
 </form>    
+
+<div class="js_dialog" id="iosDialog2" style="opacity: 0; display: none;">
+            <div class="weui-mask" onClick="javascript:hideMessageDialog();"></div>
+            <div class="weui-dialog">
+                <div class="weui-dialog__bd">弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内</div>
+                <div class="weui-dialog__ft">
+                    <a href="javascript:hideMessageDialog();" class="weui-dialog__btn weui-dialog__btn_primary">确定</a>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
