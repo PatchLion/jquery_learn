@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>我的优惠券</title>
+    <link rel="stylesheet" href="./css/weui.css">
+    <link rel="stylesheet" href="./css/mycss.css">
+    <link rel="stylesheet" href="./css/example.css">
+    <link rel="stylesheet" href="./css/stamp.css">
+    <script src="./javascript/jquery.js"></script>
+	<script type="text/javascript" class="tabbar js_show">
+    $(function(){
+        $('.weui-tabbar__item').on('click', function () {
+            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        });
+    });
+	</script>
+    </head>
+
+<body>
+<div class="page tabbar js_show">
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab">
+            <div class="weui-tab__panel">
+				
+					<div class="stamp stamp04">
+						<div class="par"><p>微信充值</p><sub class="sign">￥</sub><span>50.00</span><sub>优惠券</sub><p>充值金额满100.00元</p></div>
+						<div class="copy">副券<p>2015-08-13<br>2016-08-13</p><a href="#">立即使用</a></div>
+					</div>
+				</div>
+            </div>
+            <div class="weui-tabbar">
+                <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
+                    <span style="display: inline-block;position: relative;">
+                        <img src="./images/unused.png" alt="" class="weui-tabbar__icon" style="opacity: 0.4;">
+                    </span>
+                    <p class="weui-tabbar__label">未使用的优惠券</p>
+                </a>
+                <a href="javascript:;" class="weui-tabbar__item">
+                    <img src="./images/used.png" alt="" class="weui-tabbar__icon" style="opacity: 0.4;">
+                    <p class="weui-tabbar__label">已使用的优惠券</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
