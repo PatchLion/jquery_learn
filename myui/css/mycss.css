@@ -8,3 +8,19 @@ body{
 .margin-top-px{
 	margin-top: 20px;
 }
+#refresh-content{
+	text-align:center;
+	padding-top: 10%;
+}
+#refresh-image{
+	opacity: 0.18;
+	width: 64px;
+	height: 54px;
+	cursor: pointer;
+}
+
+.refresh-text{	
+	text-align: center;
+	color: #AEAEAE;
+	font-size: 12px;
+}
